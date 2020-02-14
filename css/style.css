@@ -1,0 +1,103 @@
+body{
+    margin: 0px;
+    padding:0px;
+}
+header{
+    height:60px;
+    width:100%;
+    font-size: 35px;
+    background-color: #0098DA;
+    color:white;
+}
+.heading-of-app{
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    float:left;
+}
+h2,p{
+    text-align: center;
+}
+.login-form{
+    margin-top: 100px;
+}
+form{
+    margin:auto;
+    width:600px;
+    height:auto;
+   
+}
+input[type=text],textarea,select,input[type=password]{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 18px;
+  border-radius: 8px;
+  border:1px solid gray;
+  margin-top: 15px;
+  background-color: white;
+}
+label{
+    font-size: 20px;
+}
+button,.register-button{
+    height: 50px;
+    background-color:#0098DA ;
+    font-size: 20px;
+    border:1px solid #0098DA;
+    width:200px;
+    margin-left:200px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+.register-button{
+ width: 100%;
+ margin:30px 0px;
+ margin-left:20px;
+}
+.header-nav-container{
+    float:right;
+    height: auto;
+    line-height: 0px;
+    vertical-align: none;
+    
+}
+.header-nav-container ul{
+    list-style-type: none;
+ }
+ .header-nav-container li{
+     display:inline;
+}
+
+.header-nav-container li a{
+     text-decoration: none;
+  
+     font-size: 18px;
+     color:white;
+     margin-left:20px;
+     margin-right:20px;
+}
+.profile-button{
+    display: inline-block;
+}
+.edit-button,.reset-button{
+    margin: 30px 0px ;
+    width:150px;
+}
+.reset-button{
+    margin-left: 15px;
+}
+.rows{
+    border:1px solid red;
+    display: inline-block;
+}
+.data{
+    width:0px;
+  padding: 0px 0px;
+  margin: 0;
+  font-size: 18px;
+  border-radius: 8px;
+  border:1px solid gray;
+  margin-top: 15px;
+  background-color: white;
+}

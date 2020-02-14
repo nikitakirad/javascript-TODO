@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="heading-of-app"><b>TO-DO-APP</b></div>
+        </header>
+        <div class="login-form">
+            <form action="../html/todo.html" method="POST">
+                 <label><b>Username:</b></label>
+                 <input id="username" type="text" placeholder="Enter Username" name="uname" required>
+                 <label><b>Password:</b></label>
+                 <input id="password" type="text" placeholder="Enter Password" name="uname" required>
+                 <button onclick="getLoginInfo()"><b>Login</b></button>
+                 <p>Don't have account?<a href="../html/registration.html">Sign up</a></p>
+            </form>
+        </div>
+        <script src="../js/login.js"></script>
+    </body>
+</html>

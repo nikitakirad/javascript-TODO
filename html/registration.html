@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <header>
+           <div class="heading-of-app"> <b>TO-DO-APP</b></div>
+        </header>
+        <div>
+            <h2>Register</h2>
+            <p>Please fill the below details to create the account</p>
+            <form action="#" method="POST">
+                 <label><b>Username/Email-id:</b></label>
+                 <input id="uname" type="text" placeholder="Enter Username" name="uname"  required>
+                 <label><b>First Name:</b></label>
+                 <input id="fname" type="text" placeholder="Enter First Name" name="fname">
+                 <label><b>Last Name:</b></label>
+                 <input id="lname" type="text" placeholder="Enter Last Name" name="lname">
+                 <label><b>Password:</b></label>
+                 <input id="password" type="password" placeholder="Enter Password" name="pass" required >
+
+                 <label><b>Gender:</b></label><br><br>
+                 <input type="radio" id="male" name="gender" value="male" selected>
+                 <label>Male</label>
+                 <input type="radio" id="female" name="gender" value="female">
+                 <label>Female</label><br><br>
+                 <label><b>Address:</b></label>
+                 <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
+                 <label><b>Upload-image:</b></label>
+                 <input id="image" type="file" id="myFile" name="filename">
+                 <button class="register-button" type="submit" onclick="getInputValue()"><b>Register</b></button>
+                 <p>Already have an account?<a href="../html/login.html">Sign in</a></p>
+            </form>
+        </div>
+        <script src="../js/registration.js"></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body onload="display()">
+        <header>
+            <div class="heading-of-app"><b>TO-DO-APP</b></div>
+        </header>
+        <form action="#" method="POST">
+            <h2>General Info</h2>
+            <hr>
+            <div class="rows">
+            <input class="data" type="text" id="fname">
+            <input class="data" type="text" id="lname">
+            </div>
+            <div class="rows">
+                <input class="data" type="text" id="uname">
+                <input class="data" type="password" id="password">
+            </div>
+            
+            <div class="rows">
+                <input class="data" type="radio" id="male" name="gender" value="male" selected>
+                <input class="data" type="radio" id="female" name="gender" value="female" >
+            </div>
+            <div class="rows">
+                <textarea id="address"></textarea>
+            </div>
+            <div class="profile-button">
+                <button class="edit-button">Edit</button>
+                <button class="reset-button">Reset</button>
+            </div>
+        </form>
+        <script src="../js/profile.js"></script>
+    </body>
+</html>
