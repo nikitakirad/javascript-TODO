@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/edittask.css">
+    </head>
+    <body>
+        <header>
+            <div class="heading-of-app"><b>TO-DO-APP</b></div>
+            <div class="header-nav-container">
+                <ul>
+                    <li><a href="../html/login.html">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+<body>
+<form action="#" method="POST">
+  	<label>Title:</label> <input type="text" id="title" name="title" required><br>
+    <label>Category:</label>
+        <select  id="categorytype">
+        <option>Office</option>
+        <option>Home</option>
+        <option>Other</option>
+        </select><br>
+    <label>Start Date:</label><input type=date  id="startdate"><br>
+    <label>Due Date:</label><input type=date  id="duedate"><br>
+    <label>Description:</label><textarea name="tododescription" id="description"></textarea><br>
+    <div class="buttons"> 
+    <input type=button id="addtodoitem" value="Add" onclick="edittask()">
+    <input type=button class="goback"value="Go Back" onclick="goback()">
+</div>
+</form>
+<script src="../js/edittask.js"></script>
+
+</body>

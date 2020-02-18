@@ -1,0 +1,72 @@
+body{
+    margin: 0px;
+    padding:0px;
+}
+header{
+    height:60px;
+    width:100%;
+    font-size: 35px;
+    background-color: #0098DA;
+    color:white;
+}
+.heading-of-app{
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    float:left;
+}
+.header-nav-container{
+    float:right;
+    height: auto;
+    line-height: 0px;
+    vertical-align: none;
+    
+}
+.header-nav-container ul{
+    list-style-type: none;
+ }
+ .header-nav-container li{
+     display:inline;
+}
+
+.header-nav-container li a{
+     text-decoration: none;
+  
+     font-size: 18px;
+     color:white;
+     margin-left:20px;
+     margin-right:20px;
+}
+.buttons{
+    text-align: center;
+}
+input[type=button],select{
+    height: 30px;
+    background-color:#0098DA ;
+    font-size: 18px;
+    border:1px solid #0098DA;
+    width:100px;
+    border-radius: 4px;
+    margin-top: 15px;
+    color: white;
+}
+.deletebutton,select,.donebutton{
+    margin-left: 15px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+td, th {
+  border-bottom:  1px solid black;
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}

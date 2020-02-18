@@ -8,16 +8,16 @@ function getLoginInfo() {
     {
         console.log("login successful");
         alert("Login successful");
+       window.location.href="../html/todo.html";
        sessionStorage.setItem("user",userName);
-        let data1=sessionStorage.getItem("user")
-        console.log(data1);
-
+       let data1=sessionStorage.getItem("user")
+       console.log(data1);   
+       
     }
     else{
         alert("Invalid entries");
 
        
     }
-        
     
 }

@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/profile.css">
     </head>
-    <body onload="display()">
+    <body>
         <header>
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
+            <div class="header-nav-container">
+                <ul>
+                    <li><a href="../html/login.html" onclick="deletesession()"><b>Logout</b></a></li>
+                </ul>
+            </div>
         </header>
         <form action="#" method="POST">
-            <h2>General Info</h2>
-            <hr>
-            <div class="rows">
-            <input class="data" type="text" id="fname">
-            <input class="data" type="text" id="lname">
-            </div>
-            <div class="rows">
-                <input class="data" type="text" id="uname">
-                <input class="data" type="password" id="password">
-            </div>
-            
-            <div class="rows">
-                <input class="data" type="radio" id="male" name="gender" value="male" selected>
-                <input class="data" type="radio" id="female" name="gender" value="female" >
-            </div>
-            <div class="rows">
-                <textarea id="address"></textarea>
-            </div>
-            <div class="profile-button">
-                <button class="edit-button">Edit</button>
-                <button class="reset-button">Reset</button>
+            <label ><b>Username/Email-id:</b></label>
+                 <input id="uname" type="text" placeholder="Enter Username" name="uname"  disabled>
+                 <label><b>First Name:</b></label>
+                 <input id="fname" type="text" placeholder="Enter First Name" name="fname">
+                 <label><b>Last Name:</b></label>
+                 <input id="lname" type="text" placeholder="Enter Last Name" name="lname">
+                 <label><b>Password:</b></label>
+                 <input id="password" type="password" placeholder="Enter Password" name="pass" required >
+
+                <label><b>Gender:</b></label><br>
+                 <label><input type="radio" id="male" name="gender" value="male">Male</label>
+                <label> <input type="radio" id="female" name="gender" value="female">Female</label><br><br>
+                 <label><b>Address:</b></label>
+                 <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
+                <div class="buttons">
+                <input type=button id="addtodoitem" value="Add" onclick="userdata()">
+                <input type=button class="goback"value="Go Back" onclick="goback()">
             </div>
         </form>
         <script src="../js/profile.js"></script>

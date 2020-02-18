@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/todo.css">
     </head>
-    <body>
+    <body onload="DisplayData()">
         <header>
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
             <div class="header-nav-container">
                 <ul>
                     <li><a href="../html/profile.html">MyProfile</a></li>
-                    <li><a href="../html/login.html">Logout</a></li>
+                    <li><a href="../html/login.html" onclick="deletesession()">Logout</a></li>
                 </ul>
             </div>
         </header>
+        <div>
+            <div class="buttons">
+             <input type=button name="New" value="New" onclick="displayform()"/>
+             <input type="button" class="deletebutton" value="Delete" onclick="deletetasks()"/>
+             <select  id="filtertype" onchange="filter()">
+                <option value="all">All</option>
+                <option id="office"  value="office">Office</option>
+                <option id="social"  value="home">Home</option>
+                <option id="personal"  value="other">Other</option>
+            </select>
+            <input type="button" class="donebutton" value="Done" onclick="donetask()"/>
+             </div>
+            <table>
+                
+                     <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Start-Date</th>
+                        <th>End-Date</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+               
+                 <tbody id="todo_list"></tbody>
+             </table>
+        </div>
+        <script src="../js/todo.js"></script>
     </body>
 </html>
