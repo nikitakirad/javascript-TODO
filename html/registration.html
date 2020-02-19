@@ -15,25 +15,35 @@
         <div>
             <h2>Register</h2>
             <p>Please fill the below details to create the account</p>
-            <form action="#" method="POST">
-                 <label><b>Username/Email-id:</b></label>
-                 <input id="uname" type="text" placeholder="Enter Username" name="uname"  required>
-                 <label><b>First Name:</b></label>
+            <form onsubmit="return false">
+                <span style="color:red">* </span><label><b>First Name:</b></label>
+                <span id="firstname" style="color: red;"></span><br>
                  <input id="fname" type="text" placeholder="Enter First Name" name="fname">
-                 <label><b>Last Name:</b></label>
+        
+                 <span style="color:red">* </span><label><b>Last Name:</b></label>
+                 <span id="lastname" style="color: red;"></span><br>
                  <input id="lname" type="text" placeholder="Enter Last Name" name="lname">
-                 <label><b>Password:</b></label>
-                 <input id="password" type="password" placeholder="Enter Password" name="pass" required >
 
-                 <label><b>Gender:</b></label><br><br>
+                 <span style="color:red">* </span><label><b>Username/Email-id:</b></label>
+                 <span id="email" style="color: red;"></span><br>
+                 <input id="uname" type="text" placeholder="Enter Username" name="uname">
+
+                 <span style="color:red">* </span><label><b>Password:</b></label><br>
+                 <span style="color:red">length must be between 5 to 20<br>
+                                            should contain 1 uppercase,lowercase and special symbol<br>
+                </span>
+                 <input id="password" type="password" placeholder="Enter Password" name="pass" >
+                 <span id="userpassword" style="color: red;"></span><br>
+                 <label><b>Gender:</b></label>
+                 <span id="firstname" style="color: red;"></span><br>
                  <label><input type="radio" id="male" name="gender" value="male">Male</label>
                 <label> <input type="radio" id="female" name="gender" value="female">Female</label><br><br>
                  <label><b>Address:</b></label>
                  <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
                  <label><b>Upload-image:</b></label>
                  <input id="image" type="file" id="myFile" name="filename">
-                 <button class="register-button" type="submit" onclick="getInputValue()"><b>Register</b></button>
-                 <!--<p>Already have an account?<a href="../html/login.html">Sign in</a></p>-->
+                 <input class="register-button" type="submit" onclick="Validation()" value="Register"></input>
+
             </form>
         </div>
         <script src="../js/registration.js"></script>

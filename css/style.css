@@ -40,7 +40,7 @@ input[type=text],textarea,select,input[type=password]{
 label{
     font-size: 20px;
 }
-button,.register-button,input[type="button"]{
+button,.register-button,input[type="button"],input[type="submit"]{
     height: 50px;
     background-color:#0098DA ;
     font-size: 20px;

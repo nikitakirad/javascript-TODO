@@ -1,5 +1,4 @@
-var formdatarecords=[];
-
+//task addition
 function formdata(){
     let Title=document.getElementById("title").value;
     let Duedate=document.getElementById("duedate").value;
@@ -19,21 +18,29 @@ function formdata(){
     formdataobj.status=Status;
 
    console.log(formdataobj);
-    let data1=sessionStorage.getItem("user")
-    console.log(data1);
-    let data=JSON.parse(localStorage.getItem(data1));
-    console.log(data);
-    data.todo.push(formdataobj);
-    console.log(data);
-    console.log(data);
+    let user=sessionStorage.getItem("user")
+    console.log(user);
+    let userdata=JSON.parse(localStorage.getItem(user));
+    console.log(userdata);
+    userdata.todo.push(formdataobj);
+    console.log(userdata);
+    
 
-    localStorage.setItem(data1,JSON.stringify(data));
+    localStorage.setItem(user,JSON.stringify(userdata));
+    alert("Task added Successfully")
 }
 function goback(){
     window.location.href="../html/todo.html";
 }
 function deletesession(){
     sessionStorage.clear();
-  }
-
-
+}
+function validateDate(){
+    let startDate=document.getElementById("startdate").value;
+    let dueDate=document.getElementById("duedate").value;
+    let message=document.getElementById("error");
+    message.innerHTML="";
+    if(startDate>dueDate && startDate!="" && dueDate!=""){
+        message.innerHTML="Due date should be greather than start date";
+    }
+}

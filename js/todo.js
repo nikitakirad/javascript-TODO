@@ -6,7 +6,7 @@ console.log(data);
 function displayform(){
 window.location.href="../html/form.html";
 }
-
+//to display todolist in tabular form
 function DisplayData() {
     let data=JSON.parse(localStorage.getItem(sessionStorage.getItem("user")));
     let todolist = data.todo;
@@ -33,17 +33,19 @@ function DisplayData() {
     }
   }
 
-
+//single row deletion
 function deleterow(index){
     var table=document.getElementById("todo_list");
     console.log("deleteindex:"+index);
     data.todo.splice(index, 1);
-    table.deleteRow(index-1);
     console.log(data);
     localStorage.setItem(data1,JSON.stringify(data));
     let deleteddata=JSON.parse(localStorage.getItem(data1));
     console.log(deleteddata);
+    DisplayData();
+    
 }
+//editing the particular todo task of user
 function editform(index){
     let index1=JSON.stringify(index);
     console.log(index1);
@@ -53,6 +55,7 @@ function editform(index){
     window.location.href="../html/edittask.html";
 
 }
+//deleting multiple task
 function deletetasks(){
   var table=document.getElementById("todo_list");
   let todolist = data.todo;
@@ -74,11 +77,12 @@ function deletetasks(){
   });
   localStorage.setItem(data1,JSON.stringify(data));
   DisplayData();
+  
 }
 
  
-
-function filter(){
+//displaying todo task based on category
+function filter(){      
   let eID = document.getElementById("filtertype");
   let Category1= eID.options[eID.selectedIndex].text;
   var table=document.getElementById("todo_list");
@@ -104,6 +108,7 @@ function filter(){
         "<td>" + '<button type="button" style="display:block" name="" id="btn' + i + '" onclick="deleterow(' + i + ');">Delete</button>' + "</td>" +
         "<td>" + '<button type="button" style="display:block" name="" id="btn' + i + '" onclick="editform(' + i + ');">Edit</button>' + "</td>"
         table.appendChild(list);
+        
       }
   }
   }
@@ -111,6 +116,7 @@ function filter(){
     DisplayData();
   }
 }
+//changing the status of pending to done
 function donetask(){
   var table=document.getElementById("todo_list");
   let todolist = data.todo;

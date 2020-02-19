@@ -4,7 +4,7 @@ let index=sessionStorage.getItem(user);
 console.log(index);
 let userdata=JSON.parse(localStorage.getItem(user));
 console.log(userdata);
-
+//displaying the default value of task 
 (function() {
     document.getElementById("title").value=userdata.todo[index].title;
     document.getElementById("startdate").value=userdata.todo[index].startdate;
@@ -17,6 +17,7 @@ console.log(userdata);
 function goback(){
     window.location.href="../html/todo.html";
 }
+//editing the task of particular user and saving it
 function edittask(){
 let editData = userdata.todo[index];
 editData.title = document.getElementById("title").value;
@@ -28,6 +29,15 @@ editData.category= categoryID.options[categoryID.selectedIndex].text;
 editData.description = document.getElementById("description").value;
 
 localStorage.setItem(user,JSON.stringify(userdata))
+alert("Task save successfully")
 
 }
-
+function validateDate(){
+    let startDate=document.getElementById("startdate").value;
+    let dueDate=document.getElementById("duedate").value;
+    let message=document.getElementById("error");
+    message.innerHTML="";
+    if(startDate>dueDate && startDate!="" && dueDate!=""){
+        message.innerHTML="Due date should be greather than start date";
+    }
+}

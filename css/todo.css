@@ -39,6 +39,8 @@ header{
 }
 .buttons{
     text-align: center;
+    width:500px;
+    margin: auto;
 }
 input[type=button],select{
     height: 30px;

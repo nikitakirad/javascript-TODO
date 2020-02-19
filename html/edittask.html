@@ -21,8 +21,10 @@
         <option>Home</option>
         <option>Other</option>
         </select><br>
-    <label>Start Date:</label><input type=date  id="startdate"><br>
-    <label>Due Date:</label><input type=date  id="duedate"><br>
+    <label>Start Date:</label><input type=date oninput="validateDate()" id="startdate"><br>
+    <label>Due Date:</label><span id="error" style="color: red;"></span><br>
+    <input type=date  id="duedate" oninput="validateDate()"><br>
+    
     <label>Description:</label><textarea name="tododescription" id="description"></textarea><br>
     <div class="buttons"> 
     <input type=button id="addtodoitem" value="Add" onclick="edittask()">
