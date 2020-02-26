@@ -36,11 +36,37 @@ function deletesession(){
     sessionStorage.clear();
 }
 function validateDate(){
+    let count=1;
+    let title=document.getElementById("title").value;
     let startDate=document.getElementById("startdate").value;
     let dueDate=document.getElementById("duedate").value;
     let message=document.getElementById("error");
     message.innerHTML="";
     if(startDate>dueDate && startDate!="" && dueDate!=""){
         message.innerHTML="Due date should be greather than start date";
+        count=0;
+    }
+    
+    if(startDate==""){
+        document.getElementById("startdate-error").innerHTML="Please enter the Start Date";
+        count=0;
+    }
+    else{
+        document.getElementById("startdate-error").innerHTML="";
+    }
+    if(dueDate==""){
+        message.innerHTML="Please enter the due Date";
+        count=0;
+    }
+
+    if(title==""){
+        document.getElementById("title-error").innerHTML="Title field cannot be empty"
+        count=0;
+    }
+    else{
+        document.getElementById("title-error").innerHTML="";
+    }
+    if(count==1){
+        formdata();
     }
 }

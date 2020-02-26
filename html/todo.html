@@ -13,21 +13,28 @@
                 </ul>
             </div>
         </header>
-        <div>
+        <div class="todopage">
             <div class="buttons">
-             <input type=button name="New" value="New" onclick="displayform()"/>
-             <input type="button" class="deletebutton" value="Delete" onclick="deletetasks()"/>
-             <select  id="filtertype" onchange="filter()">
-                <option value="all">All</option>
-                <option id="office"  value="office">Office</option>
-                <option id="social"  value="home">Home</option>
-                <option id="personal"  value="other">Other</option>
-            </select>
-            <input type="button" class="donebutton" value="Done" onclick="donetask()"/>
+            <div class="right-buttons">
+            <input type="button" id="clearbutton" value="Clear" onclick="clearpage()"/>
+            <input type="button" id="deletebutton" value="Delete" onclick="deletetasks()"/>
+            <input type="button" id="donebutton" value="Done" onclick="donetask()"/>
+            <input type=button id="newbutton"  value="New" onclick="displayform()"/>
+            
              </div>
-            <table>
+             <div class="left-buttons">
+                <select  id="filtertype" onchange="filter()">
+                    <option value="all">All</option>
+                    <option id="office"  value="office">Office</option>
+                    <option id="social"  value="home">Home</option>
+                    <option id="personal"  value="other">Other</option>
+                </select>
+                <input type="search" id="searchField" placeholder="search" onsearch="search()">
+             </div>
+             </div>
+            <table > 
                 
-                     <tr>
+                     <tr id="hiderow">
                         <th></th>
                         <th>Title</th>
                         <th>Category</th>
@@ -36,7 +43,6 @@
                         <th>Status</th>
                         <th>Description</th>
                         <th>Action</th>
-                        <th></th>
                     </tr>
                
                  <tbody id="todo_list"></tbody>

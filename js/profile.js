@@ -21,6 +21,7 @@ console.log(data);
             r.checked=false;
         }
     }
+    document.getElementById("profile_image").src=data.image;
 })();
 //editing the profile value of particular user and saving it 
 function userdata(){
@@ -28,10 +29,11 @@ function userdata(){
     data.lname=document.getElementById("lname").value;
     data.password=document.getElementById("password").value;  
     data.address=document.getElementById("address").value;
-    var ele = document.getElementsByName('gender'); 
-              
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked && ele[i].value=="female") {
+    var radioelement = document.getElementsByName('gender'); 
+    data.image=sessionStorage.getItem("profilePhoto"); 
+    sessionStorage.removeItem("profilePhoto");      
+    for(i = 0; i < radioelement .length; i++) { 
+        if(radioelement [i].checked && radioelement [i].value=="female") {
             data.gender="female";
         }
         else{
@@ -54,25 +56,19 @@ function Validation(){
     let Fname=document.getElementById("fname").value;
     let Lname=document.getElementById("lname").value;
     let Password=document.getElementById("password").value;
-    let Gender;
-    var ele = document.getElementsByName('gender');       
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked && ele[i].value=="female") {
-            Gender="female";
-        }
-        else{
-            Gender="male";
-        }
-    } 
-    let Address=document.getElementById("address").value;
-    //let Image=document.getElementById("image").value; 
-        if(Fname == ""){
-            document.getElementById("firstname").innerHTML="Name field cannot be null";
-            count=0
-        }
-        else{
-            document.getElementById("firstname").innerHTML="";
-        }
+    let Gender="";
+    let data = JSON.parse(localStorage.getItem(Uname));
+
+    var radioelement  = document.getElementsByName('gender'); 
+              
+            for(i = 0; i < radioelement .length; i++) { 
+                if(radioelement [i].checked && radioelement [i].value=="female") {
+                    Gender="female";
+                }
+                else if(radioelement [i].checked && radioelement [i].value=="male"){
+                    Gender="male";
+                }
+            } 
          if((Fname.length<3) || (Fname.length>20)){
             document.getElementById("firstname").innerHTML="Name value must be between 3 and 20";
             count=0
@@ -83,6 +79,13 @@ function Validation(){
          if(!isNaN(Fname)){
             
             document.getElementById("firstname").innerHTML="Name cannot contain number";
+            count=0
+        }
+        else{
+            document.getElementById("firstname").innerHTML="";
+        }
+        if(Fname == ""){
+            document.getElementById("firstname").innerHTML="Name field cannot be null";
             count=0
         }
         else{
@@ -103,13 +106,14 @@ function Validation(){
         else{
             document.getElementById("lastname").innerHTML="";
         }
-         if(Password == ""){
-            document.getElementById("userpassword").innerHTML="password field cannot be null";
+        if(Lname == ""){
+            document.getElementById("lastname").innerHTML="lastname field cannot be null";
             count=0
         }
         else{
-            document.getElementById("userpassword").innerHTML="";
+            document.getElementById("lastname").innerHTML="";
         }
+         
         if((Password.length<5) || (Password.length>20)){
             document.getElementById("userpassword").innerHTML="password value must be between 5 and 20";
             count=0
@@ -117,8 +121,35 @@ function Validation(){
         else{
             document.getElementById("userpassword").innerHTML="";
         }
+        if(Password == ""){
+            document.getElementById("userpassword").innerHTML="password field cannot be null";
+            count=0
+        }
+        else{
+            document.getElementById("userpassword").innerHTML="";
+        }
+        if(Gender == ""){
+            document.getElementById("usergender").innerHTML="Gender field cannot be empty";
+            count=0;
+        }
+        else{
+            document.getElementById("usergender").innerHTML="";
+        }
     if(count==1 ){
         userdata();
     }
 
+}
+
+function changeProfilePic(){
+    let profileImage = document.getElementById("myFile").files[0];
+    let imagereader = new FileReader();
+    imagereader.readAsDataURL(profileImage);
+
+    imagereader.onload = function ()
+    {
+        let imgdata = imagereader.result;
+        sessionStorage.setItem("profilePhoto", imgdata);
+        document.getElementById("profile_image").src = imgdata;
+    };
 }

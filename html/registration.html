@@ -24,24 +24,24 @@
                  <span id="lastname" style="color: red;"></span><br>
                  <input id="lname" type="text" placeholder="Enter Last Name" name="lname">
 
-                 <span style="color:red">* </span><label><b>Username/Email-id:</b></label>
+                 <span style="color:red">* </span><label><b>Username:</b></label>
                  <span id="email" style="color: red;"></span><br>
                  <input id="uname" type="text" placeholder="Enter Username" name="uname">
 
-                 <span style="color:red">* </span><label><b>Password:</b></label><br>
-                 <span style="color:red">length must be between 5 to 20<br>
-                                            should contain 1 uppercase,lowercase and special symbol<br>
-                </span>
-                 <input id="password" type="password" placeholder="Enter Password" name="pass" >
+                 <span style="color:red">* </span><label><b>Password:</b></label>
                  <span id="userpassword" style="color: red;"></span><br>
-                 <label><b>Gender:</b></label>
-                 <span id="firstname" style="color: red;"></span><br>
+                <input id="password" type="password" placeholder="Enter Password" name="pass" >
+                
+                <span style="color:red">* </span><label><b>Gender:</b></label>
+                <span id="usergender" style="color: red;"></span><br>
                  <label><input type="radio" id="male" name="gender" value="male">Male</label>
                 <label> <input type="radio" id="female" name="gender" value="female">Female</label><br><br>
                  <label><b>Address:</b></label>
                  <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
-                 <label><b>Upload-image:</b></label>
-                 <input id="image" type="file" id="myFile" name="filename">
+                 <label><b>Profile-Photo:</b></label><br>
+                 <img id="profile_image" src="../image/profile-icon-9.png" alt="profile-photo" height="100" weight="100" style="border: 1px solid grey;"><br>
+
+                 <input  type="file" id="myFile" name="filename" onchange="changeProfilePic()">
                  <input class="register-button" type="submit" onclick="Validation()" value="Register"></input>
 
             </form>

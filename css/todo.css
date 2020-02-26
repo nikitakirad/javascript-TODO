@@ -38,9 +38,25 @@ header{
      margin-right:20px;
 }
 .buttons{
-    text-align: center;
-    width:500px;
-    margin: auto;
+    background-color: #006C9D;
+    overflow: hidden;
+    height:60px;
+}
+.right-buttons{
+    float:right;
+    margin-right: 20px;
+}
+.left-buttons{
+    float:left;
+    
+}
+.todopage{
+  
+    overflow:hidden;
+    margin-left: 150px;
+    margin-right:150px;
+    margin-top:50px;
+    
 }
 input[type=button],select{
     height: 30px;
@@ -52,7 +68,7 @@ input[type=button],select{
     margin-top: 15px;
     color: white;
 }
-.deletebutton,select,.donebutton{
+#deletebutton,select,#donebutton,#newbutton{
     margin-left: 15px;
 }
 table {

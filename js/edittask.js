@@ -21,7 +21,7 @@ function goback(){
 function edittask(){
 let editData = userdata.todo[index];
 editData.title = document.getElementById("title").value;
-editData.stardate = document.getElementById("startdate").value;
+editData.startdate = document.getElementById("startdate").value;
 editData.duedate = document.getElementById("duedate").value;
 let categoryID = document.getElementById("categorytype");
 editData.category= categoryID.options[categoryID.selectedIndex].text;
@@ -32,12 +32,39 @@ localStorage.setItem(user,JSON.stringify(userdata))
 alert("Task save successfully")
 
 }
+
 function validateDate(){
+    let count=1;
+    let title=document.getElementById("title").value;
     let startDate=document.getElementById("startdate").value;
     let dueDate=document.getElementById("duedate").value;
     let message=document.getElementById("error");
     message.innerHTML="";
     if(startDate>dueDate && startDate!="" && dueDate!=""){
         message.innerHTML="Due date should be greather than start date";
+        count=0;
+    }
+   
+    if(startDate==""){
+        document.getElementById("startdate-error").innerHTML="Please enter the Start Date";
+        count=0;
+    }
+    else{
+        document.getElementById("startdate-error").innerHTML="";
+    }
+    if(dueDate==""){
+        message.innerHTML="Please enter the due Date";
+        count=0;
+    }
+    
+    if(title==""){
+        document.getElementById("title-error").innerHTML="Title field cannot be empty"
+        count=0;
+    }
+    else{
+        document.getElementById("title-error").innerHTML="";
+    }
+    if(count==1){
+        edittask();
     }
 }
