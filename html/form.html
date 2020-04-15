@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/form.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <header>
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
             <div class="header-nav-container">
                 <ul>
-                    <li><a href="../html/login.html" onclick="deletesession()"><b>Logout</b></a></li>
+                    <li><a href="../html/index.html" onclick="gettaskdatamodule.deletesession()"><b>Logout</b></a></li>
                 </ul>
             </div>
         </header>
-<body>
+
 <form action="#" method="POST">
-    <span style="color: red;">*</span><label>Title:</label><span id="title-error" style="color: red;"></span><br>
+    <span>*</span><label>Title:</label><span id="title-error"></span><br>
     <input type="text" id="title" name="title" required><br>
     <label>Category:</label>
         <select  id="categorytype">
@@ -22,10 +23,10 @@
         <option id="social"  value="home">Home</option>
         <option id="personal"  value="other">Other</option>
         </select><br>
-    <span style="color: red;">*</span><label>Start Date:</label><span id="startdate-error" style="color: red;"></span><br>
+    <span>*</span><label>Start Date:</label><span id="startdate-error"></span><br>
     <input type=date  id="startdate"><br>
-    <span style="color: red;">*</span><label>Due Date:</label>
-    <span id="error" style="color: red;"></span><br>
+    <span>*</span><label>Due Date:</label>
+    <span id="error"></span><br>
     <input type=date  id="duedate"><br>
     
     <label>Status:</label>
@@ -35,8 +36,8 @@
     <label>Description:</label><textarea name="tododescription" id="description"></textarea><br>
     
     <div class="buttons"> 
-    <input type=button id="addtodoitem" value="Add" onclick="validateDate()">
-    <input type=button class="goback"value="Go Back" onclick="goback()">
+    <input type=button id="addtodoitem" value="Add" onclick="gettaskdatamodule.validateDateAndTitle()">
+    <input type=button id="goback"value="Go Back" onclick="gettaskdatamodule.previouspage()">
     
 </div>
 </form>

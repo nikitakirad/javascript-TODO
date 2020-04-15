@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="../css/reset.css">
+
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
@@ -8,7 +10,7 @@
            <div class="heading-of-app"> <b>TO-DO-APP</b></div>
            <div class="header-nav-container">
             <ul>
-                <li><a href="../html/login.html"><b>Login</b></a></li>
+                <li><a href="../html/index.html">Login</a></li>
             </ul>
         </div>
         </header>
@@ -16,33 +18,33 @@
             <h2>Register</h2>
             <p>Please fill the below details to create the account</p>
             <form onsubmit="return false">
-                <span style="color:red">* </span><label><b>First Name:</b></label>
-                <span id="firstname" style="color: red;"></span><br>
-                 <input id="fname" type="text" placeholder="Enter First Name" name="fname">
+                <span>*</span><label>First Name:</label>
+                <span id="firstname"></span><br>
+                 <input id="userfirstname" type="text" placeholder="Enter First Name" name="fname">
         
-                 <span style="color:red">* </span><label><b>Last Name:</b></label>
-                 <span id="lastname" style="color: red;"></span><br>
-                 <input id="lname" type="text" placeholder="Enter Last Name" name="lname">
+                 <span>* </span><label>Last Name:</label>
+                 <span id="lastname"></span><br>
+                 <input id="userlastname" type="text" placeholder="Enter Last Name" name="lname">
 
-                 <span style="color:red">* </span><label><b>Username:</b></label>
-                 <span id="email" style="color: red;"></span><br>
-                 <input id="uname" type="text" placeholder="Enter Username" name="uname">
+                 <span>* </span><label>Username:</label>
+                 <span id="email"></span><br>
+                 <input id="username" type="text" placeholder="Enter Username" name="uname">
 
-                 <span style="color:red">* </span><label><b>Password:</b></label>
-                 <span id="userpassword" style="color: red;"></span><br>
+                 <span>* </span><label>Password:</label>
+                 <span id="userpassword"></span><br>
                 <input id="password" type="password" placeholder="Enter Password" name="pass" >
                 
-                <span style="color:red">* </span><label><b>Gender:</b></label>
-                <span id="usergender" style="color: red;"></span><br>
+                <span>* </span><label>Gender:</label>
+                <span id="usergender"></span><br>
                  <label><input type="radio" id="male" name="gender" value="male">Male</label>
                 <label> <input type="radio" id="female" name="gender" value="female">Female</label><br><br>
-                 <label><b>Address:</b></label>
+                 <label>Address:</label>
                  <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
-                 <label><b>Profile-Photo:</b></label><br>
+                 <label>Profile-Photo:</label><br>
                  <img id="profile_image" src="../image/profile-icon-9.png" alt="profile-photo" height="100" weight="100" style="border: 1px solid grey;"><br>
 
-                 <input  type="file" id="myFile" name="filename" onchange="changeProfilePic()">
-                 <input class="register-button" type="submit" onclick="Validation()" value="Register"></input>
+                 <input  type="file" id="myFile" name="filename" onchange="registrationmodule.getProfilePic()">
+                 <input class="register-button" type="submit" onclick="registrationmodule.validation()" value="Register"></input>
 
             </form>
         </div>

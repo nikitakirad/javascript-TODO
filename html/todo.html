@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/todo.css">
+        
     </head>
-    <body onload="DisplayData()">
+    <body onload="displayalltaskmodule.displayTasks()">
         <header>
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
             <div class="header-nav-container">
                 <ul>
                     <li><a href="../html/profile.html">MyProfile</a></li>
-                    <li><a href="../html/login.html" onclick="deletesession()">Logout</a></li>
+                    <li><a href="../html/index.html" onclick="displayalltaskmodule.deleteParticularUser()">Logout</a></li>
                 </ul>
             </div>
         </header>
         <div class="todopage">
             <div class="buttons">
             <div class="right-buttons">
-            <input type="button" id="clearbutton" value="Clear" onclick="clearpage()"/>
-            <input type="button" id="deletebutton" value="Delete" onclick="deletetasks()"/>
-            <input type="button" id="donebutton" value="Done" onclick="donetask()"/>
-            <input type=button id="newbutton"  value="New" onclick="displayform()"/>
+            <input type="button" id="clearbutton" value="Clear" onclick="displayalltaskmodule.clearpage()"/>
+            <input type="button" id="deletebutton" value="Delete" onclick="displayalltaskmodule.deleteMultipleTasks()"/>
+            <input type="button" id="donebutton" value="Done" onclick="displayalltaskmodule.changeStatusToDone()"/>
+            <input type=button id="newbutton"  value="New" onclick="displayalltaskmodule.displayTaskform()"/>
             
              </div>
              <div class="left-buttons">
-                <select  id="filtertype" onchange="filter()">
+                <select  id="filtertype" onchange="displayalltaskmodule.filterDataCategoryWise()">
                     <option value="all">All</option>
                     <option id="office"  value="office">Office</option>
                     <option id="social"  value="home">Home</option>
                     <option id="personal"  value="other">Other</option>
                 </select>
-                <input type="search" id="searchField" placeholder="search" onsearch="search()">
+                <input type="search" id="searchField" placeholder="search" onsearch="displayalltaskmodule.searchParticularTask()">
              </div>
              </div>
             <table > 

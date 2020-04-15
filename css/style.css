@@ -14,9 +14,23 @@ header{
     line-height: 60px;
     vertical-align: middle;
     float:left;
+    font-weight: bold;
 }
-h2,p{
+
+h2{
     text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+span{
+    color:red;
+}
+p{
+    text-align: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .login-form{
     margin-top: 100px;
@@ -24,10 +38,9 @@ h2,p{
 form{
     margin:auto;
     width:600px;
-    height:auto;
-   
+    margin-top: 30px;
 }
-input[type=text],textarea,select,input[type=password]{
+input[type=text],textarea,select,input[type=password],input[type=date]{
     width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -39,6 +52,7 @@ input[type=text],textarea,select,input[type=password]{
 }
 label{
     font-size: 20px;
+    font-weight: bold;
 }
 button,.register-button,input[type="button"],input[type="submit"]{
     height: 50px;
@@ -60,7 +74,7 @@ button,.register-button,input[type="button"],input[type="submit"]{
     height: auto;
     line-height: 0px;
     vertical-align: none;
-    
+    margin-top: 30px;
 }
 .header-nav-container ul{
     list-style-type: none;
@@ -71,7 +85,7 @@ button,.register-button,input[type="button"],input[type="submit"]{
 
 .header-nav-container li a{
      text-decoration: none;
-  
+    font-weight: bold;
      font-size: 18px;
      color:white;
      margin-left:20px;
@@ -100,4 +114,17 @@ button,.register-button,input[type="button"],input[type="submit"]{
   border:1px solid gray;
   margin-top: 15px;
   background-color: white;
+}
+#goback{
+    margin-left: 10px;
+}
+#addtodoitem,#goback{
+    height: 30px;
+    background-color:#0098DA ;
+    font-size: 18px;
+    border:1px solid #0098DA;
+    width:100px;
+    border-radius: 4px;
+    margin-top: 15px;
+    color: white;
 }
