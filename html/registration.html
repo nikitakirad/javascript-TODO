@@ -43,11 +43,13 @@
                  <label>Profile-Photo:</label><br>
                  <img id="profile_image" src="../image/profile-icon-9.png" alt="profile-photo" height="100" weight="100" style="border: 1px solid grey;"><br>
 
-                 <input  type="file" id="myFile" name="filename" onchange="registrationmodule.getProfilePic()">
-                 <input class="register-button" type="submit" onclick="registrationmodule.validation()" value="Register"></input>
+                 <input  type="file" id="myFile" name="filename" onchange="validationmodule.getProfilePic()" />
+                 <input class="register-button" type="submit" onclick="validationmodule.validationOfRegistration()" value="Register" />
 
             </form>
         </div>
+        <script src="../js/validation.js"></script>
+
         <script src="../js/registration.js"></script>
     </body>
 </html>

@@ -92,3 +92,21 @@ td, th {
 tr:nth-child(even) {
   background-color: white;
 }
+.displayoff{
+    display: none;
+}
+.displayon{
+    display: inline-block;
+}
+.actiondeletebuttonstyle{
+    display:block;
+    background-color:red;
+    border:1px solid red;
+    border-radius:3px;
+}
+.actioneditbuttonstyle{
+    display:block;
+    background-color:green;
+    border:1px solid green;
+    border-radius:3px;
+}

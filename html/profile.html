@@ -9,7 +9,7 @@
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
             <div class="header-nav-container">
                 <ul>
-                    <li><a href="../html/index.html" onclick="displayprofileofusermodule.deletesession()">Logout</a></li>
+                    <li><a href="../html/index.html" onclick="commomfunctionalitiesmodule.deletesession()">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -34,13 +34,16 @@
                  <textarea id="address" type="text" placeholder="Enter Address" name="address"></textarea>
                  <label><b>Profile-Photo:</b></label><br>
                  <img id="profile_image" src="../image/profile-icon-9.png" alt="profile-photo" height="100" weight="100" style="border: 1px solid grey;"><br>
-                 <input  type="file" id="myFile" name="filename" onchange="displayprofileofusermodule.changeProfilePic()">
+                 <input  type="file" id="myFile" name="filename" onchange="validationmodule.getProfilePic()">
                 
                  <div class="buttons">
-                 <input type=button id="addtodoitem" value="Save" onclick="displayprofileofusermodule.validationOfInputFields()">
+                 <input type=button id="addtodoitem" value="Save" onclick="validationmodule.validationOfEditProfile()">
                 <input type=button id="goback" value="Go Back" onclick="displayprofileofusermodule.previouspage()">
             </div>
         </form>
+        <script src="../js/commomfunctionalities.js"></script>
         <script src="../js/profile.js"></script>
+        <script src="../js/validation.js"></script>
+        <script src="../js/registration.js"></script>
     </body>
 </html>

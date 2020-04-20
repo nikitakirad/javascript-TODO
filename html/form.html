@@ -9,7 +9,7 @@
             <div class="heading-of-app"><b>TO-DO-APP</b></div>
             <div class="header-nav-container">
                 <ul>
-                    <li><a href="../html/index.html" onclick="gettaskdatamodule.deletesession()"><b>Logout</b></a></li>
+                    <li><a href="../html/index.html" onclick="commomfunctionalitiesmodule.deletesession()"><b>Logout</b></a></li>
                 </ul>
             </div>
         </header>
@@ -36,11 +36,12 @@
     <label>Description:</label><textarea name="tododescription" id="description"></textarea><br>
     
     <div class="buttons"> 
-    <input type=button id="addtodoitem" value="Add" onclick="gettaskdatamodule.validateDateAndTitle()">
-    <input type=button id="goback"value="Go Back" onclick="gettaskdatamodule.previouspage()">
+    <input type=button id="addtodoitem" value="Add" onclick="validationmodule.validateDateAndTitleoftask()" />
+    <input type=button id="goback"value="Go Back" onclick="gettaskdatamodule.previouspage()" />
     
 </div>
 </form>
+<script src="../js/commomfunctionalities.js"></script>
 <script src="../js/form.js"></script>
-
+<script src="../js/validation.js"></script>
 </body>

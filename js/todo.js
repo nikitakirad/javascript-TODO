@@ -1,50 +1,55 @@
 var displayalltaskmodule=(function(){
-  
-  var user=sessionStorage.getItem("user")
-  var userdata=JSON.parse(localStorage.getItem(sessionStorage.getItem("user")));
+
+  var user=commomfunctionalitiesmodule.sessionstoragedata();
+  var userdata=commomfunctionalitiesmodule.localstoragedata();
   var dataOfAllTasks = userdata.todo;
 
   //navigate to task form 
   function displayTaskform(){
     window.location.href="../html/form.html";
   }
+  //display task rowwise
+   function displayParticularTask(dataofparticulartask,particularactionButton){
+     let table = document.getElementById("todo_list");
+    let list = document.createElement("tr");
+    list.innerHTML = 
+    "<td>" + "<input class='checkboxes' type='checkbox'></td>" +        
+      "<td>" + dataofparticulartask.title + "</td>" +
+      "<td>" + dataofparticulartask.category + "</td>" +
+      "<td>" + dataofparticulartask.startdate + "</td>" +
+      "<td>" + dataofparticulartask.duedate + "</td>" +
+      "<td>" + dataofparticulartask.status + "</td>" +
+      "<td>" + dataofparticulartask.description+ "</td>" +
+      "<td>" + particularactionButton+ "</td>" 
+      
 
+    table.appendChild(list);
+   }
   // display list of task in tabular form
   function displayTasks() {
       cleartable();
+      var flag=0;
       console.log(dataOfAllTasks);
-      document.getElementById("donebutton").style.display="none";
-      document.getElementById("deletebutton").style.display="none";
-      document.getElementById("searchField").style.display="none";
-      document.getElementById("clearbutton").style.display="none";
-      
+      document.getElementById("donebutton").classList.add('displayoff');
+      document.getElementById("deletebutton").classList.add('displayoff');
+      document.getElementById("searchField").classList.add('displayoff');
+      document.getElementById("clearbutton").classList.add('displayoff');
 
       let table = document.getElementById("todo_list");
       table.innerHTML = "";
       let actionButton;
+      
       for (let i = 0; i < dataOfAllTasks.length; i++) {
 
         if(dataOfAllTasks[i].status=="Pending"){
-          actionButton="<button  style='display:block;background-color:green;border:1px solid green;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
+          actionButton="<button  class='actioneditbuttonstyle'  id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
 
         }
         else if(dataOfAllTasks[i].status=="Done"){
-          actionButton="<button  style='display:block;background-color:red;border:1px solid red;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
+          actionButton="<button  class='actiondeletebuttonstyle'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
   
         }
-        let list = document.createElement("tr");
-        list.innerHTML = 
-        "<td>" + "<input class='checkboxes' type='checkbox'></td>" +        
-          "<td>" + dataOfAllTasks[i].title + "</td>" +
-          "<td>" + dataOfAllTasks[i].category + "</td>" +
-          "<td>" + dataOfAllTasks[i].startdate + "</td>" +
-          "<td>" + dataOfAllTasks[i].duedate + "</td>" +
-          "<td>" + dataOfAllTasks[i].status + "</td>" +
-          "<td>" + dataOfAllTasks[i].description+ "</td>" +
-          "<td>" + actionButton+ "</td>" 
-          
-
-        table.appendChild(list);
+        displayParticularTask(dataOfAllTasks[i],actionButton);
       }
       displayDoneButton();
       displayDeleteButton();
@@ -63,15 +68,11 @@ var displayalltaskmodule=(function(){
   //edit the data of particular  task 
   function editParticularTask(currentuserindex){
       sessionStorage.setItem(user,currentuserindex);
-      //let data2=sessionStorage.getItem(user)
-      //console.log(data2);
       window.location.href="../html/edittask.html";
 
   }
   //delete multiple task
   function deleteMultipleTasks(){
-    //let l=dataOfAllTasks.length-1;
-    //console.log(l);
     let check=document.getElementsByClassName("checkboxes");
     console.log(check);
     for(let t=0; t<=dataOfAllTasks.length-1;t++)
@@ -98,7 +99,7 @@ var displayalltaskmodule=(function(){
     let Category1= eID.options[eID.selectedIndex].text;
     var table=document.getElementById("todo_list");
     let count=0;
-    let l=dataOfAllTasks.length-1;
+    //let l=dataOfAllTasks.length-1;
     table.innerHTML=" ";
     document.getElementById("hiderow").style.display="";
     if(Category1=="Office" || Category1=="Home" || Category1=="Other")
@@ -106,27 +107,14 @@ var displayalltaskmodule=(function(){
     for(let i=0;i<=dataOfAllTasks.length-1;i++)
     {
       if(dataOfAllTasks[i].status=="Pending"){
-        actionButton="<button  style='display:block;background-color:green;border:1px solid green;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
+        actionButton="<button  class='actioneditbuttonstyle' id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
 
       }
       else{
-        actionButton="<button  style='display:block;background-color:red;border:1px solid red;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
+        actionButton="<button  class='actiondeletebuttonstyle'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
       }
       if(dataOfAllTasks[i].category==Category1){
-        
-      let list = document.createElement("tr");
-        list.innerHTML = 
-        "<td>" + "<input class='checkboxes' type='checkbox'></td>" +        
-          "<td>" + dataOfAllTasks[i].title + "</td>" +
-          "<td>" + dataOfAllTasks[i].category + "</td>" +
-          "<td>" + dataOfAllTasks[i].startdate + "</td>" +
-          "<td>" + dataOfAllTasks[i].duedate + "</td>" +
-          "<td>" + dataOfAllTasks[i].status + "</td>" +
-          "<td>" + dataOfAllTasks[i].description+ "</td>" +
-          "<td>" +actionButton+ "</td>";
-          
-          table.appendChild(list);
-          
+          displayParticularTask(dataOfAllTasks[i],actionButton);
 
         }
     
@@ -142,7 +130,7 @@ var displayalltaskmodule=(function(){
       }
     }
     if(count==0){
-      document.getElementById("hiderow").style.display="none";
+      document.getElementById("hiderow").classList.add('displayoff');
       alert("Data Not Found");
     }
   }
@@ -163,10 +151,7 @@ var displayalltaskmodule=(function(){
     localStorage.setItem(user,JSON.stringify(userdata));
     displayTasks();
   }
-  function deleteParticularUser(){
-    sessionStorage.clear();
-  }
-  //show done button
+
   function displayDoneButton(){
     let count=0;
       for (let i = 0; i < dataOfAllTasks.length; i++) {
@@ -175,7 +160,9 @@ var displayalltaskmodule=(function(){
         }
       }
       if(count>=1){
-        document.getElementById("donebutton").style.display="inline-block";
+        document.getElementById("donebutton").classList.remove('displayoff');
+        document.getElementById("donebutton").classList.add('displayon');
+        
       }
   }
   //show delete button
@@ -187,7 +174,8 @@ var displayalltaskmodule=(function(){
         }
       }
       if(count>=2){
-        document.getElementById("deletebutton").style.display="inline-block";
+        document.getElementById("deletebutton").classList.remove('displayoff');
+        document.getElementById("deletebutton").classList.add('displayon');
       }
   }
   //search particular task on the page
@@ -198,24 +186,15 @@ var displayalltaskmodule=(function(){
       table.innerHTML=" ";
       for (let i = 0; i < dataOfAllTasks.length; i++) {
         if(dataOfAllTasks[i].status=="Pending"){
-          actionButton="<button  style='display:block;background-color:green;border:1px solid green;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
+          actionButton="<button  class='actioneditbuttonstyle'  id='btn" + i + "' onclick='displayalltaskmodule.editParticularTask(" + i + ");'>Edit</button>";
     
         }
         else{
-          actionButton="<button  style='display:block;background-color:red;border:1px solid red;border-radius:3px;'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
+          actionButton="<button  class='actiondeletebuttonstyle'  id='btn" + i + "' onclick='displayalltaskmodule.deleteParticularTask(" + i + ");'>Delete</button>";
         }
           if(dataOfAllTasks[i].title == searchitem){
-            let list = document.createElement("tr");
-        list.innerHTML = 
-        "<td>" + "<input class='checkboxes' type='checkbox'></td>" +        
-          "<td>" + dataOfAllTasks[i].title + "</td>" +
-          "<td>" + dataOfAllTasks[i].category + "</td>" +
-          "<td>" + dataOfAllTasks[i].startdate + "</td>" +
-          "<td>" + dataOfAllTasks[i].duedate + "</td>" +
-          "<td>" + dataOfAllTasks[i].status + "</td>" +
-          "<td>" + dataOfAllTasks[i].description+ "</td>" +
-          "<td>" +actionButton+ "</td>";
-          table.appendChild(list);
+          displayParticularTask(dataOfAllTasks[i],actionButton);
+          console.log("n2");
           
         }
           }
@@ -223,13 +202,15 @@ var displayalltaskmodule=(function(){
   //show search button
   function displaySearchButton(){
     if(dataOfAllTasks.length>=2){
-      document.getElementById("searchField").style.display="inline-block";
+      document.getElementById("searchField").classList.remove('displayoff');
+      document.getElementById("searchField").classList.add('displayon');
     }
   }
   //show clear button
   function displayClearButton(){
     if(dataOfAllTasks.length>=2){
-      document.getElementById("clearbutton").style.display="inline-block";
+      document.getElementById("clearbutton").classList.add('displayoff');
+      document.getElementById("clearbutton").classList.add('displayon');
     }
   }
   //reload page
@@ -238,7 +219,7 @@ var displayalltaskmodule=(function(){
   }
   function cleartable(){
     if(dataOfAllTasks.length<=0 ){
-      document.getElementById("hiderow").style.display="none";
+      document.getElementById("hiderow").classList.add('displayoff');
     }
   }return{
     displayTaskform:displayTaskform,
@@ -246,7 +227,6 @@ var displayalltaskmodule=(function(){
     filterDataCategoryWise:filterDataCategoryWise,
     changeStatusToDone:changeStatusToDone,
     searchParticularTask:searchParticularTask,
-    deleteParticularUser:deleteParticularUser,
     displayTasks:displayTasks,
     clearpage:clearpage,
     deleteParticularTask:deleteParticularTask,
