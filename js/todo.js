@@ -101,7 +101,9 @@ var displayalltaskmodule=(function(){
     let count=0;
     //let l=dataOfAllTasks.length-1;
     table.innerHTML=" ";
-    document.getElementById("hiderow").style.display="";
+   // document.getElementById("hiderow").style.display="";
+    document.getElementById("hiderow").classList.remove('displayoff');
+
     if(Category1=="Office" || Category1=="Home" || Category1=="Other")
     {
     for(let i=0;i<=dataOfAllTasks.length-1;i++)
@@ -124,7 +126,9 @@ var displayalltaskmodule=(function(){
       displayTasks();
     }
     for(let i=0;i<=dataOfAllTasks.length-1;i++){
-      document.getElementById("hiderow").style.display="";
+      //document.getElementById("hiderow").style.display="";
+      document.getElementById("hiderow").classList.remove('displayoff');
+
       if(dataOfAllTasks[i].category==Category1 || Category1=="All"){
         count+=1;
       }
@@ -132,7 +136,10 @@ var displayalltaskmodule=(function(){
     if(count==0){
       document.getElementById("hiderow").classList.add('displayoff');
       alert("Data Not Found");
+      
+      
     }
+   
   }
   //changing the status of pending to done
   function changeStatusToDone(){
@@ -194,7 +201,7 @@ var displayalltaskmodule=(function(){
         }
           if(dataOfAllTasks[i].title == searchitem){
           displayParticularTask(dataOfAllTasks[i],actionButton);
-          console.log("n2");
+          
           
         }
           }
